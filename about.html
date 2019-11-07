@@ -129,7 +129,14 @@
 			transition: background-color .4s ease;
 			-webkit-border-radius: 0 4px 4px 0;
 			border-radius: 0 4px 4px 0;
-		}
+        }
+        .aboutUsTable{
+            text-align: center;
+            width: 100%;
+            font-family: OpenSans-Regular;
+            font-size: 20px;
+            
+        }
 
 		form > .button:hover {
 			background-color: rgba(0, 150, 136, 0.8);
@@ -150,7 +157,7 @@
 		<br>
 		<br>
 		<br> 
-        <a href="#">Navigate</a>
+        <a href="main.html">Navigate</a>
         <a href="#">Time Table</a>
         <a href="#">Complaints</a>
         <a href="about.html">About</a>
@@ -160,44 +167,37 @@
         <div class="col"> <h2> Thapar Maps</h2></div>
 		<div class="col"> <img src="images/thapar logo.jpg" style="height: 4rem; width:6rem; float: right; overflow: auto;"> </div>
 				
-	</div>		  
-	
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHpIdQXaCYiz6YKFoCCaP7wq9Hh_YD-Kk"></script>
-		<script type="text/javascript">
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(function (p) {
-					var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
-					var mapOptions = {
-						center: LatLng,
-						zoom: 17,
-						mapTypeId: google.maps.MapTypeId.ROADMAP
-					};
-					var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
-					var marker = new google.maps.Marker({
-						position: LatLng,
-						map: map,
-						title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
-					});
-					google.maps.event.addListener(marker, "click", function (e) {
-						var infoWindow = new google.maps.InfoWindow();
-						infoWindow.setContent(marker.title);
-						infoWindow.open(map, marker);
-					});
-				});
-			} else {
-				alert('Geo Location feature is not supported in this browser.');
-			}
-		</script>
-		<form method="post" style="margin-left: 16%; margin-top:25%;  position: absolute; z-index: 4;">
-			<input type="text" class="textbox" placeholder="Search">
-			<input title="Search" value="" type="submit" class="button">
-		</form>
-		<div id="dvMap" style="width: 100%; height: 87.3%;">
-		</div>
-		
-		
-		
-	  
+    </div>
+    <div>  
+        <h2 style="text-align: center; margin-top: 25%;">Made By:</h2>
+        <br>
+        <br>
+        <table class="aboutUsTable">
+            <tr>
+                <td style="font-weight: bold;">Archit Khanna</td>
+            </tr>
+            <tr>
+                <td>101703095</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Arpit Singla</td>
+            </tr>
+            <tr>
+                <td>101703101</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Arshdeep Singh Kawatra</td>
+            </tr>
+            <tr>
+                <td>101703102</td>
+            </tr>
+            </table>
+        <br>
+        <br>
+        <p style="text-align: center; padding: 30px;"> Submitted to Computer Science Department as a project under Software Engineering (UCS503).</p>
+        
+        
+        <p style="text-align: center; padding: 75px;"> Thapar Institute of Engineering & Technology, Patiala, Punjab, India.</p>
 
 <!--===============================================================================================-->          
     <script>

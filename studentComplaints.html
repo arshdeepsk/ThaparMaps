@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Thapar Maps</title>
+	<title>Thapar Maps Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -29,9 +29,8 @@
 	<style>
 		body {
 		  font-family: "Lato", sans-serif;
-		}
-		
-		.sidebar {
+        }
+        .sidebar {
 		  height: 100%;
 		  width: 0;
 		  position: fixed;
@@ -82,67 +81,7 @@
 		  transition: margin-left .5s;
 		  padding: 16px;
 		}
-		form {
-			outline: 0;
-			float: left;
-			-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-			-webkit-border-radius: 4px;
-			border-radius: 4px;
-		}
-
-		form > .textbox {
-			outline: 0;
-			height: 42px;
-			width: 244px;
-			line-height: 42px;
-			padding: 0 16px;
-			background-color: rgba(255, 255, 255, 0.8);
-			color: #212121;
-			border: 0;
-			float: left;
-			-webkit-border-radius: 4px 0 0 4px;
-			border-radius: 4px 0 0 4px;
-		}
-
-		form > .textbox:focus {
-			outline: 0;
-			background-color: #FFF;
-		}
-
-		form > .button {
-			outline: 0;
-			background: none;
-			background-color: #640000;
-			float: left;
-			height: 42px;
-			width: 42px;
-			text-align: center;
-			line-height: 42px;
-			border: 0;
-			color: #FFF;
-			font: normal normal normal 14px/1 FontAwesome;
-			font-size: 16px;
-			text-rendering: auto;
-			text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-			-webkit-transition: background-color .4s ease;
-			transition: background-color .4s ease;
-			-webkit-border-radius: 0 4px 4px 0;
-			border-radius: 0 4px 4px 0;
-		}
-
-		form > .button:hover {
-			background-color: rgba(0, 150, 136, 0.8);
-		}		
-		/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-		@media screen and (max-height: 450px) {
-		  .sidebar {padding-top: 15px;}
-		  .sidebar a {font-size: 18px;}
-		}
 	</style>
-	<script type="text/javascript">
-	
-	</script>
 </head>
 <body>
     <div id="mySidebar" class="sidebar" style="z-index: 5;">
@@ -151,6 +90,8 @@
 		<br>
 		<br> 
         <a href="main.html">Navigate</a>
+        <a href="timeTable.html">Time Table</a>
+        <a href="studentComplaints.html">Complaints</a>
         <a href="about.html">About</a>
     </div>
     <div class="row" style="background-color: #640000; padding: 1.1rem; color: #f1f1f1; margin:0px;"> 
@@ -158,43 +99,41 @@
         <div class="col"> <h2> Thapar Maps</h2></div>
 		<div class="col"> <img src="images/thapar logo.jpg" style="height: 4rem; width:6rem; float: right; overflow: auto;"> </div>
 				
+	</div>		    
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-33">
+						Account Login
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" placeholder="Email">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-20">
+						<button class="login100-form-btn" onclick="location.href='main.html'">
+							Sign in
+						</button>
+					</div>
+					<br>
+					<p style="text-align: center;"> Login as <a href="guest.html"> Guest </a> ?</p>
+				</form>
+			</div>
+		</div>
 	</div>
-	<form method="post" style="margin-left: 16%; margin-top:25%;  position: absolute; z-index: 4;">
-		<input type="text" class="textbox" placeholder="Search">
-		<input title="Search" value="" type="submit" class="button">
-	</form>
-	<div id="dvMap" style="width: 100%; height: 87.3%;"></div>
-		
-		
-		
-<!--===============================================================================================-->    	  
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHpIdQXaCYiz6YKFoCCaP7wq9Hh_YD-Kk"></script>
-		<script type="text/javascript">
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(function (p) {
-					var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
-					var mapOptions = {
-						center: LatLng,
-						zoom: 17,
-						mapTypeId: google.maps.MapTypeId.ROADMAP
-					};
-					var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
-					var marker = new google.maps.Marker({
-						position: LatLng,
-						map: map,
-						title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
-					});
-					google.maps.event.addListener(marker, "click", function (e) {
-						var infoWindow = new google.maps.InfoWindow();
-						infoWindow.setContent(marker.title);
-						infoWindow.open(map, marker);
-					});
-				});
-			} else {
-				alert('Geo Location feature is not supported in this browser.');
-			}
-		</script>
-<!--===============================================================================================-->          
+	
+<!--================================================================================================-->    
     <script>
         function openNav() {
           document.getElementById("mySidebar").style.width = "250px";
@@ -206,6 +145,7 @@
           document.getElementById("main").style.marginLeft= "0";
         }
     </script>
+	
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->

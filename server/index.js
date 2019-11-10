@@ -19,31 +19,27 @@ var knex = require("knex")(config);
 var bookshelf = require("bookshelf")(knex);
 
 var User = bookshelf.Model.extend({
-  tableName: "user"
+  tableName: "user",
+  requireFetch: false
 });
 var Navigate = bookshelf.Model.extend({
-  tableName: "navigate"
+  tableName: "navigate",
+  requireFetch: false
 });
 
-app.get("/api/login",async(req,res)=>{
-    const user = await User.where("email", req.body.email).fetch()
-    if(user==={}){
-        res.send({});
-    }
-    if(user.password===req.body.password){
-        res.send(user);
-    }
-    if(user.password!==req.body.password){
-        res.send({});
-    }
-})
+app.get("/api/login", async (req, res) => {
+  const user = await User.where("email", req.body.email).fetch();
+  if (user.attributes.password === req.body.password) {
+    res.send(user);
+  }
+  console.log(user.attributes);
+  res.send({});
+});
 
-app.get('/api/location',async(req,res)=>{
-    const navigate =await Navigate.where("roomNo",req.body.roomNo).fetch()
-    res.send(navigate)
-})
-
-
+app.get("/api/location", async (req, res) => {
+  const navigate = await Navigate.where("roomNo", req.body.roomNo).fetch();
+  res.send(navigate);
+});
 
 const PORT = 3000;
 app.listen(PORT, () => {

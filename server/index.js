@@ -25,7 +25,7 @@ var Navigate = bookshelf.Model.extend({
   tableName: "navigate"
 });
 
-app.get("/api/login",(req,res)=>{
+app.get("/api/login",async(req,res)=>{
     const user = await User.where("email", req.body.email).fetch()
     if(user==={}){
         res.send({});
@@ -38,7 +38,7 @@ app.get("/api/login",(req,res)=>{
     }
 })
 
-app.get('/api/location',(req,res)=>{
+app.get('/api/location',async(req,res)=>{
     const navigate =await Navigate.where("roomNo",req.body.roomNo).fetch()
     res.send(navigate)
 })

@@ -27,8 +27,14 @@ var Navigate = bookshelf.Model.extend({
   requireFetch: false
 });
 
+app.get('/',(req,res)=>{
+  res.send('connected')
+})
+
 app.get("/api/login", async (req, res) => {
   const user = await User.where("email", req.body.email).fetch();
+  if(user===null)
+  return res.send({});
   if (user.attributes.password === req.body.password) {
     res.send(user);
   }

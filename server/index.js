@@ -1,7 +1,11 @@
 var app = require("express")();
 var bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: true }));
-
+var express = require('express')
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+var api=require('./routes/api.route');
+app.use('/api',api);
+app.use(express.static(__dirname+'..'));
 const config = {
   client: "pg",
   connection: {
@@ -28,19 +32,20 @@ var Navigate = bookshelf.Model.extend({
 });
 
 app.get('/',(req,res)=>{
-  res.send('connected')
+  res.sendFile('C:/Users/admin/Documents/github/ThaparMaps/index.html');
 })
 
-app.get("/api/login", async (req, res) => {
-  const user = await User.where("email", req.body.email).fetch();
-  if(user===null)
-  return res.send({});
-  if (user.attributes.password === req.body.password) {
-    res.send(user);
-  }
-  console.log(user.attributes);
-  res.send({});
-});
+// app.post("/login", async (req, res) => {
+//   console.log(req.body.email)
+
+//   // const user = await User.where("email", req.body.email).fetch();
+//   // if(user===null)
+//   // return res.send({});
+//   // if (user.attributes.password === req.body.password) {
+//   //   res.send(user);
+//   // }
+//   res.send({});
+// });
 
 app.get("/api/location", async (req, res) => {
   const navigate = await Navigate.where("roomNo", req.body.roomNo).fetch();

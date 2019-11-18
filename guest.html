@@ -150,8 +150,13 @@
 		<br>
 		<br>
 		<br> 
-        <a href="main.html">Navigate</a>
-        <a href="about.html">About</a>
+        <a href="guest.html">Navigate</a>
+		<a href="aboutGuest.html">About</a>
+		<br>
+		<br>
+		<br>
+		<br>
+		<a href="index.html">Log Out</a>
     </div>
     <div class="row" style="background-color: #640000; padding: 1.1rem; color: #f1f1f1; margin:0px;"> 
         <div class="col"> <button class="openbtn" onclick="openNav()">☰</button> </div>
@@ -159,13 +164,63 @@
 		<div class="col"> <img src="images/thapar logo.jpg" style="height: 4rem; width:6rem; float: right; overflow: auto;"> </div>
 				
 	</div>
-	<form method="post" style="margin-left: 16%; margin-top:25%;  position: absolute; z-index: 4;">
-		<input type="text" class="textbox" placeholder="Search">
-		<input title="Search" value="" type="submit" class="button">
-	</form>
-	<div id="dvMap" style="width: 100%; height: 87.3%;"></div>
+	<form style="margin-left: 16%; margin-top:25%;  position: absolute; z-index: 4;">
+			<input id="searchlocadd" type="text" class="textbox" placeholder="Search">
+			<input id="searchloc" title="Search" value="" class="button">
+		</form>
+		<div id="dvMap" style="width: 100%; height: 87.2%;"> </div>
 		
-		
+
+	<script>
+			document.getElementById('searchloc').addEventListener
+				('click', searchLocation);
+	
+			function truncate(n) {
+				return n > 0 ? Math.floor(n) : Math.ceil(n);
+			}	
+	
+			let getDMS = function (dd, longOrLat) {
+				let hemisphere = /^[WE]|(?:lon)/i.test(longOrLat)
+				? dd < 0
+				? "W"
+				: "E"
+				: dd < 0
+				? "S"
+				: "N";
+				
+				const absDD = Math.abs(dd);
+				const degrees = truncate(absDD);
+				const minutes = truncate((absDD - degrees) * 60);
+				const seconds = ((absDD - degrees - minutes / 60) * Math.pow(60, 2)).toFixed(2);
+				
+				let dmsArray = [degrees, minutes, seconds, hemisphere];
+				return `${dmsArray[0]}°${dmsArray[1]}'${dmsArray[2]}"${dmsArray[3]}`;
+			}
+	
+			function searchLocation(e){
+				e.preventDefault();
+				loc = document.getElementById('searchlocadd').value;
+	
+				fetch('api/location', {
+					method: 'POST',
+					headers: new Headers({'Content-Type':'application/json'}),
+					body: JSON.stringify({roomNo: loc})
+				})
+				.then((res) => {return res.text();}).then((t)=>{
+					if(!t.includes('latitude')){
+						alert("Address does not exist in DB!");
+						return;
+					}
+					t=JSON.parse(t);
+					console.log(t.longitude);
+					longdms=String(getDMS(t.longitude,'long'));
+					latdms=String(getDMS(t.latitude,'lat'));
+					var test = "https://www.google.com/maps/place/"+latdms+"+"+longdms+"/@"+String(t.latitude)+","+String(t.longitude)+",16z";		
+					window.location.href=test;
+				})
+				.catch((err) => console.log(err))
+			}
+	</script>
 		
 <!--===============================================================================================-->    	  
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHpIdQXaCYiz6YKFoCCaP7wq9Hh_YD-Kk"></script>

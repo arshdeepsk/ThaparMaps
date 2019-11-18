@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Thapar Maps</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+	<style>
+		body {
+		  font-family: "Lato", sans-serif;
+		}
+		
+		.sidebar {
+		  height: 100%;
+		  width: 0;
+		  position: fixed;
+		  z-index: 1;
+		  top: 0;
+		  left: 0;
+		  background-color: #640000;
+		  overflow-x: hidden;
+		  transition: 0.5s;
+		  padding-top: 60px;
+		}
+		
+		.sidebar a {
+		  padding: 8px 8px 8px 32px;
+		  text-decoration: none;
+		  font-size: 25px;
+		  color: #f1f1f1;
+		  display: block;
+		  transition: 0.3s;
+		}
+		
+		.sidebar a:hover {
+		  color: #f1f1f1;
+		}
+		
+		.sidebar .closebtn {
+		  position: absolute;
+		  top: 0;
+		  right: 25px;
+		  font-size: 36px;
+		  margin-left: 50px;
+		}
+		
+		.openbtn {
+		  font-size: 20px;
+		  cursor: pointer;
+		  background-color: #111;
+		  color: white;
+		  padding: 10px 15px;
+		  border: none;
+		}
+		
+		.openbtn:hover {
+		  background-color: #444;
+		}
+		
+		#main {
+		  transition: margin-left .5s;
+		  padding: 16px;
+		}
+		form {
+			outline: 0;
+			float: left;
+			-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+			-webkit-border-radius: 4px;
+			border-radius: 4px;
+		}
+
+		form > .textbox {
+			outline: 0;
+			height: 42px;
+			width: 244px;
+			line-height: 42px;
+			padding: 0 16px;
+			background-color: rgba(255, 255, 255, 0.8);
+			color: #212121;
+			border: 0;
+			float: left;
+			-webkit-border-radius: 4px 0 0 4px;
+			border-radius: 4px 0 0 4px;
+		}
+
+		form > .textbox:focus {
+			outline: 0;
+			background-color: #FFF;
+		}
+
+		form > .button {
+			outline: 0;
+			background: none;
+			background-color: #640000;
+			float: left;
+			height: 42px;
+			width: 42px;
+			text-align: center;
+			line-height: 42px;
+			border: 0;
+			color: #FFF;
+			font: normal normal normal 14px/1 FontAwesome;
+			font-size: 16px;
+			text-rendering: auto;
+			text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+			-webkit-transition: background-color .4s ease;
+			transition: background-color .4s ease;
+			-webkit-border-radius: 0 4px 4px 0;
+			border-radius: 0 4px 4px 0;
+        }
+        .aboutUsTable{
+            text-align: center;
+            width: 100%;
+            font-family: OpenSans-Regular;
+            font-size: 20px;
+            
+        }
+
+		form > .button:hover {
+			background-color: rgba(0, 150, 136, 0.8);
+		}		
+		/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+		@media screen and (max-height: 450px) {
+		  .sidebar {padding-top: 15px;}
+		  .sidebar a {font-size: 18px;}
+		}
+	</style>
+	<script type="text/javascript">
+	
+	</script>
+</head>
+<body>
+    <div id="mySidebar" class="sidebar" style="z-index: 5;">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+		<br>
+		<br>
+		<br> 
+        <a href="guest.html">Navigate</a>
+        <a href="aboutGuest.html">About</a>
+        <br>
+		<br>
+		<br>
+		<br>
+		<a href="index.html">Log Out</a>
+    </div>
+    <div class="row" style="background-color: #640000; padding: 1.1rem; color: #f1f1f1; margin:0px;"> 
+        <div class="col"> <button class="openbtn" onclick="openNav()">☰</button> </div>
+        <div class="col"> <h2> Thapar Maps</h2></div>
+		<div class="col"> <img src="images/thapar logo.jpg" style="height: 4rem; width:6rem; float: right; overflow: auto;"> </div>
+				
+    </div>
+    <div>  
+        <h2 style="text-align: center; margin-top: 25%;">Made By:</h2>
+        <br>
+        <br>
+        <table class="aboutUsTable">
+            <tr>
+                <td style="font-weight: bold;">Archit Khanna</td>
+            </tr>
+            <tr>
+                <td>101703095</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Arpit Singla</td>
+            </tr>
+            <tr>
+                <td>101703101</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Arshdeep Singh Kawatra</td>
+            </tr>
+            <tr>
+                <td>101703102</td>
+            </tr>
+            </table>
+        <br>
+        <br>
+        <p style="text-align: center; padding: 30px;"> Submitted to Computer Science Department as a project under Software Engineering (UCS503).</p>
+        
+        
+        <p style="text-align: center; padding: 75px;"> Thapar Institute of Engineering & Technology, Patiala, Punjab, India.</p>
+
+<!--===============================================================================================-->          
+    <script>
+        function openNav() {
+          document.getElementById("mySidebar").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidebar").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+    </script>
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>
